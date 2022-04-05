@@ -13,4 +13,70 @@
  *  Acoplamento de funcionalidades
  *  Quando alterado uma implementação há grandes chances de surgirem bugs em partes da aplicação onde a implementação é chamada
  * 
+ * 
+ * Estagiários
+ *  Bolsa estágio
+ * 
+ * CLT 
+ *  Salário
+ * 
+ * PJ
+ *  Por NF
  */
+
+//Ruim
+class FolhaPagamento {
+    pagamentoSalárioCLT(employe) {
+       const folhaDeponto = FolhaDePontoService.get(employe.id)
+       const horasExtras = HorasExtras.get(employe.id)
+
+       //...
+    }
+
+    pagamentoSalárioEstágio(employe) {
+        //..
+     }
+}
+
+const folhaDePagamento = new FolhaPagamento()
+const employe = Employe.get(id)
+
+if(employe.contractType === 'CLT') {
+    folhaDePagamento.pagamentoSalárioCLT(employe)
+} else if(employe.contractType === 'ESTAGIO') {
+    folhaDePagamento.pagamentoSalárioEstágio(employe)
+}
+
+//Ideal
+class Contrato {
+    pagamento(taxas) {
+
+    }
+}
+
+class Clt extends Contrato {
+    pagamento(taxas) {
+
+    }
+}
+
+
+class Estagio extends Contrato {
+    pagamento(taxas) {
+
+    }
+}
+
+class Pj extends Contrato {
+    pagamento(taxas) {
+
+    }
+}
+
+class FolhaDePagamento {
+    calcular(contrato) {
+        //... 
+        const taxas = Taxas.get(contrato.id)
+        contrato.pagamento(taxas)
+    }
+}

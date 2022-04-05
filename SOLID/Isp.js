@@ -13,3 +13,25 @@
  *      Bicar
  *      
  */
+
+
+class Ave {
+    bicar() {
+    }
+}
+
+class AveQueVoa {
+    voar() {
+    }
+}
+
+class PicaPau extends AveQueVoa {
+}
+
+class Pinguim extends Ave {
+    bica() {
+    }
+
+    nada() {
+    }
+}

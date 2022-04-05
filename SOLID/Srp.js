@@ -15,3 +15,52 @@
  *  Alto acoplamento
  *  Dificuldade de implementação de testes
  */
+
+//Ruim
+class User {
+    create() {
+    }
+
+    update() {
+    }
+
+    delete() {
+    }
+
+    get() {
+    }
+
+    printDocs() {
+    }
+
+    showUser() {
+    }
+
+    getAge() {
+    }
+}
+
+//Ideal
+class User {
+    getAge() {
+
+    }
+}
+
+class UserView {
+    printDocs() {
+    }
+
+    showUser() {
+    }
+}
+class UserRepository {
+    create() {
+    }
+    
+    delete() {
+    }
+
+    get() {
+    }
+}
